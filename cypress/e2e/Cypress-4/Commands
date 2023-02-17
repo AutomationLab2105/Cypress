@@ -1,0 +1,22 @@
+To execute all
+npx cypress run
+
+To execute specific one
+
+npx cypress run --spec "path"
+
+To execute multiple files
+
+npx cypress run --spec "path1,path2,path3"
+
+npx cypress run --spec "/cypress/e2e/login/**/*"
+
+npx cypress run --spec "/cypress/e2e/regression/**/*"
+
+npx cypress run --spec "/cypress/e2e/sanity/**/*"
+
+npx cypress run --spec "/cypress/e2e/login/**/*" --no-exit
+
+npx cypress run --spec "/cypress/e2e/login/**/*" --no-exit --headed
+
+npx cypress run --spec "/cypress/e2e/login/**/*" --no-exit --headed --browser=Chrome
