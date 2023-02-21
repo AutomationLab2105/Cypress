@@ -1,0 +1,28 @@
+name: CypressOnChrome
+
+on: push
+
+jobs:
+  Chrome:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        containers: [1,2,3,4,5]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: RunOnChrome
+        uses: cypress-io/github-action@v4
+        with:
+          record: true
+          parallel: true
+          group : 'Actions example'
+        env:
+          CYPRESS_RECORD_KEY: cc961df4-5d6a-45b3-a3d8-fb34a082ba6a
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+           name: cypress-execution-report
+           path: cypress/reports/html
+           retention-days: 10
