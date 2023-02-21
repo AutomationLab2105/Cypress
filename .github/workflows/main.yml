@@ -1,19 +1,19 @@
 name: CypressOnChrome
 
-on: [push]
+on: push
 
 jobs:
-  cypress-run:
+  Chrome:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Cypress run
+      - name: RunOnChrome
         uses: cypress-io/github-action@v4
         with:
           spec: cypress/e2e/Assignment-4/Program-3.cy.js
       - name: Upload Artifacts
-        uses: actions/upload-artifacts@v2
+        uses: actions/upload-artifact@v2
         if: always()
         with:
            name: cypress-execution-report
