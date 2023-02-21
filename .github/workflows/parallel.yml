@@ -1,4 +1,4 @@
-name: CypressOnChrome
+name: CypressParallelOnChrome
 
 on: push
 
